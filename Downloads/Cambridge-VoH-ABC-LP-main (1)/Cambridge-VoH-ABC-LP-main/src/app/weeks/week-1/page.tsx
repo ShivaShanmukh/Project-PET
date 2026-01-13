@@ -32,9 +32,9 @@ export default function Week1Page() {
           }
         }
       `}</style>
-      <Header 
-        onNavigate={scrollToSection} 
-        onOpenModal={(modal) => setActiveModal(modal)} 
+      <Header
+        onNavigate={scrollToSection}
+        onOpenModal={(modal) => setActiveModal(modal)}
       />
 
       <main>
@@ -84,19 +84,30 @@ export default function Week1Page() {
               </p>
             </div>
 
-            {/* Video Thumbnail Section */}
+            {/* Video Player Section */}
             <div className="video-section-container">
-              <div className="video-thumbnail-wrapper">
+              <div className="video-player-wrapper">
                 <div className="blue-rectangle-below-thumbnail">
                   <div className="blue-rectangle"></div>
                   <div className="bear-on-blue-block">
                     <img src="/assets/images/w1/sing 1.png" alt="Bear singing" className="bear-sign-asset" />
                   </div>
                 </div>
-                <div className="lock-overlay">
-                  <div className="lock-icon"></div>
-                </div>
-                <img src="/assets/images/w1/Mask group.png" alt="Video thumbnail" className="video-thumbnail-img" />
+                <video
+                  controls
+                  poster="/assets/images/w1/Mask group.png"
+                  className="exercise-video"
+                  style={{
+                    width: '100%',
+                    maxWidth: '800px',
+                    height: 'auto',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                  }}
+                >
+                  <source src="/assets/videos/Intro Video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
@@ -181,10 +192,10 @@ export default function Week1Page() {
         </div>
       </main>
 
-      <Modal 
-        isOpen={activeModal !== null} 
-        onClose={() => setActiveModal(null)} 
-        type={activeModal || 'contact'} 
+      <Modal
+        isOpen={activeModal !== null}
+        onClose={() => setActiveModal(null)}
+        type={activeModal || 'contact'}
       />
     </div>
   );
